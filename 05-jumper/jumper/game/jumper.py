@@ -21,8 +21,8 @@ def __init__(self):
 
 
 def parachute(self):
-    parachute_status()
-    return self.parachute
+    parachute = check_letter()
+    return parachute
     
 
 def check_letter(self, letter, parachute):
@@ -34,7 +34,7 @@ def check_letter(self, letter, parachute):
     return parachute
     
 
-def parachute_status(self, parachute):
+def person_status(self, parachute):
     if bool(parachute):
         return self.happy_person
     else:
