@@ -37,6 +37,15 @@ class Director:
             self.get_inputs()
             self.do_updates()
             self.do_outputs()
+
+    def get_inputs(self):
+        """Gets the inputs at the beginning of each round of play. In this case,
+        that means moving the seeker to a new location.
+
+        Args:
+            self (Director): An instance of Director.
+        """
+        pass
     
     def do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -46,6 +55,7 @@ class Director:
             self (Director): An instance of Director.
         """
         pass
+    
 
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
