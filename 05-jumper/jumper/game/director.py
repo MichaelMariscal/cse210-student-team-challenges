@@ -37,3 +37,22 @@ class Director:
             self.get_inputs()
             self.do_updates()
             self.do_outputs()
+    
+    def do_updates(self):
+        """Updates the important game information for each round of play. In 
+        this case, that means the hider watches the seeker.
+
+        Args:
+            self (Director): An instance of Director.
+        """
+        pass
+
+    def do_outputs(self):
+        """Outputs the important game information for each round of play. In 
+        this case, that means the hider provides a hint.
+
+        Args:
+            self (Director): An instance of Director.
+        """
+        pass
+
