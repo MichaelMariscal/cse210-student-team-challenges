@@ -22,24 +22,23 @@ def __init__(self):
 def parachute(self):
     for piece in self.parachute:
         print(piece)
-    for piece in self.happy_person:
-        print(piece)
 
 
-def check_letter(self):
+def check_letter(self, letter):
+    self.letter = letter
     if self.letter == True:
         print('Correct')
     elif self.letter == False:
         self.parachute.pop[0]
-        print('')
+        print('Better luck next time')
     
 
-def parachute_status(self, person):
+def parachute_status(self):
     if bool(self.parachute):
-        for piece in person:
+        for piece in self.happy_person:
             print(piece)
     else:
-        for piece in person:
+        for piece in self.sad_person:
             print(piece)
             print('Game over! Try again another time and live')
 
