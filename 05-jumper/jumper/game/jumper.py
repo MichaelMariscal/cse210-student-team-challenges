@@ -14,31 +14,31 @@ class Jumper:
     """
 def __init__(self):
     self.parachute = ["  ___"," /___\\", " \\   /", '  \ /']
+    self.happy_person = ['   0','  /|\\','  / \\', ' ', '^^^^^^^']
+    self.sad_person = ['   X', '  /|\\', '  / \\', ' ', '^^^^^^^']
     self.letter = True
+    #self.parachute = []
 
 def parachute(self):
-    #parachute = [1]
-    happy_person = ['   0','  /|\\','  / \\', ' ', '^^^^^^^']
-    sad_person = ['   X', '  /|\\', '  / \\', ' ', '^^^^^^^']
-    for piece in parachute:
-        print(piece)
-    for piece in happy_person:
+    for piece in self.parachute:
         print(piece)
 
 
-def check_letter(self):
+def check_letter(self, letter):
+    self.letter = letter
     if self.letter == True:
-        print('yay')
+        print('Correct')
     elif self.letter == False:
         self.parachute.pop[0]
+        print('Better luck next time')
     
 
-def parachute_status(self, person):
+def parachute_status(self):
     if bool(self.parachute):
-        for piece in person:
+        for piece in self.happy_person:
             print(piece)
     else:
-        for piece in person:
+        for piece in self.sad_person:
             print(piece)
             print('Game over! Try again another time and live')
 
