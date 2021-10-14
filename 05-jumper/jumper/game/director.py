@@ -37,6 +37,7 @@ class Director:
             self.get_inputs()
             self.do_updates()
             self.do_outputs()
+        self.console.write(self.jumper.sad_person)
 
     def get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -45,7 +46,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        self.console.write(self.jumper.parachute)
+        self.console.write(self.jumper.happy_person)
+        self.guesser.get_guess()
     
     def do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -54,7 +57,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        self.guesser.get_word()
+        self.jumper.check_letter()
+        self.jumper.person_status()
     
 
     def do_outputs(self):
@@ -64,5 +69,5 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        self.guesser.display()
 
