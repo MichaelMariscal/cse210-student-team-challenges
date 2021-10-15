@@ -33,6 +33,8 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        self.guesser.convert_word_to_list()
+        self.console.write(self.guesser.blank_list)
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
@@ -45,10 +47,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        
         self.console.write_list(self.jumper.parachute)
         self.console.write_list(self.jumper.happy_person)
-        self.guesser.check_guess()
-        self.guesser.return_new_line()
+        self.guesser.update_guess()
+        self.guesser.check_guess(self.update_guess.self.guess)
+        self.guesser.check_list(self.guesser.update_guess)
+        self.guesser.return_new_line(self.guesser.store_letters)
+        #self.guesser.return_new_line(self.guesser.check_guess.self.blank_list)
 
     def do_updates(self):
         """Updates the important game information for each round of play. In 
