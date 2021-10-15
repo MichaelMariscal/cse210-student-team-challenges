@@ -63,6 +63,8 @@ class Guesser():
                 store_letter += letter_guess
                 count +=1
 """
+
+"""
     def display(self):
         blanks = '_' * len(self.random_word)
         for letter_guess in self.random_word:
@@ -78,3 +80,4 @@ class Guesser():
         self.guess = input("Select a letter A-Z: ")
 
 #How should I go about having the system checking to see if they had the correct letter.
+"""
