@@ -25,7 +25,7 @@ class Director:
         self.console = Console()
         self.jumper = Jumper()
         self.keep_playing = True
-        self.guesser = Guesser()
+        self.my_guesser = Guesser()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -46,10 +46,10 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.console.write(self.jumper.parachute)
-        self.console.write(self.jumper.happy_person)
-        self.guesser.get_guess()
-    
+        self.console.write_list(self.jumper.parachute)
+        self.console.write_list(self.jumper.happy_person)
+        guess = self.console.read_number(self.my_guesser.guess)
+
     def do_updates(self):
         """Updates the important game information for each round of play. In 
         this case, that means the hider watches the seeker.
@@ -57,7 +57,6 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.guesser.get_word()
         self.jumper.check_letter()
         self.jumper.person_status()
     

@@ -41,4 +41,8 @@ class Console:
             self (Screen): An instance of Screen.
             text (string): The text to display.
         """
-        print(str(text))
+        return print(text)
+    
+    def write_list(self,list):
+        for i in list:
+            print(i)
