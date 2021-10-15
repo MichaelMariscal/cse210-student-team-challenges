@@ -25,7 +25,7 @@ class Director:
         self.console = Console()
         self.jumper = Jumper()
         self.keep_playing = True
-        self.my_guesser = Guesser()
+        self.guesser = Guesser()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -36,7 +36,6 @@ class Director:
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
-            self.do_outputs()
         self.console.write(self.jumper.sad_person)
 
     def get_inputs(self):
@@ -48,7 +47,8 @@ class Director:
         """
         self.console.write_list(self.jumper.parachute)
         self.console.write_list(self.jumper.happy_person)
-        guess = self.console.read_number(self.my_guesser.guess)
+        self.guesser.check_guess()
+        self.guesser.return_new_line()
 
     def do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -57,16 +57,18 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.jumper.check_letter()
+        guess = self.console.read(self.guesser.guess)
+        letter = self.guesser.check_guess(guess)
+        self.jumper.check_letter(letter)
         self.jumper.person_status()
     
 
-    def do_outputs(self):
+#    def do_outputs(self):
         """Outputs the important game information for each round of play. In 
         this case, that means the hider provides a hint.
 
         Args:
             self (Director): An instance of Director.
         """
-        self.guesser.display()
+        
 
