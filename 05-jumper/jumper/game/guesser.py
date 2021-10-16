@@ -9,11 +9,11 @@ class Guesser():
     def __init__(self):
         self.random_word = ["sword", "stock", "dozen", "guard", "trade", "major", "vague", "wreck"]
         self.word = random.choice(self.random_word)
-        self.guess = ""
         self.letter = True
         self.guesses = []
-        self.store_letters = []
+        #self.store_letters = []
         self.blank_list = ['_','_','_','_','_']
+        self.current_guess = ""
         
     
     def update_guess(self):
@@ -40,7 +40,7 @@ class Guesser():
     def convert_word_to_list(self):
         for letter in self.word:
             for char in letter:
-                self.store_letters.append(char)
+                self.guesses.append(char)
 
     def return_new_line(self):
         print()
