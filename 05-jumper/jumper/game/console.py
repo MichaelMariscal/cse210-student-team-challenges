@@ -1,7 +1,10 @@
+#import classes/modules
 import random
 
+#declare class
 class Console:
-    """A code template for a computer console. The responsibility of this 
+    """
+    A code template for a computer console. The responsibility of this 
     class of objects is to get text or numerical input and display text output.
     
     Stereotype:
@@ -9,9 +12,12 @@ class Console:
 
     Attributes:
         prompt (string): The prompt to display on each line.
+        text (string): Displays text.
+        list (list): Displays list.
     """
     def read(self, prompt):
-        """Gets text input from the user through the screen.
+        """
+        Gets text input from the user through the screen.
 
         Args: 
             self (Screen): An instance of Screen.
@@ -23,7 +29,8 @@ class Console:
         return input(prompt)
 
     def read_number(self, prompt):
-        """Gets numerical input from the user through the screen.
+        """
+        Gets numerical input from the user through the screen.
 
         Args: 
             self (Screen): An instance of Screen.
@@ -35,14 +42,25 @@ class Console:
         return float(input(prompt))
         
     def write(self, text):
-        """Displays the given text on the screen. 
+        """
+        Displays the given text on the screen. 
 
         Args: 
             self (Screen): An instance of Screen.
             text (string): The text to display.
+
+        Returns:
+            string: The text as a string.
         """
         return print(text)
     
-    def write_list(self,list):
+    def write_list(self, list):
+        """
+        Displays the given list on the screen. 
+
+        Args: 
+            self (Screen): An instance of Screen.
+            list (string): The list to display.
+        """
         for i in list:
             print(i)

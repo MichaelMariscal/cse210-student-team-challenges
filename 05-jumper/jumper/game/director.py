@@ -17,7 +17,8 @@ class Director:
     """
 
     def __init__(self):
-        """The class constructor.
+        """
+        The class constructor.
         
         Args:
             self (Director): an instance of Director.
@@ -29,7 +30,8 @@ class Director:
         
         
     def start_game(self):
-        """Starts the game loop to control the sequence of play.
+        """
+        Starts the game loop to control the sequence of play.
         
         Args:
             self (Director): an instance of Director.
@@ -42,11 +44,19 @@ class Director:
             self.do_updates()
             self.jumper.person_status() 
             self.is_game_over()
+            if self.keep_playing == True: 
+                self.guesser.guess_whole_word()
+                if self.guesser.whole_word == False:
+                    self.keep_playing = True
+                elif self.guesser.whole_word == True:
+                    self.keep_playing = False
+            
 
         print("-------------------------------------------------------------")
 
     def get_inputs(self):
-        """Gets the inputs at the beginning of each round of play. In this case,
+        """
+        Gets the inputs at the beginning of each round of play. In this case,
         that means moving the seeker to a new location.
 
         Args:
@@ -60,10 +70,10 @@ class Director:
         self.guesser.check_guess()
         print()
         self.guesser.return_new_line()
-        #self.guesser.return_new_line(self.guesser.check_guess.self.blank_list)
 
     def do_updates(self):
-        """Updates the important game information for each round of play. In 
+        """
+        Updates the important game information for each round of play. In 
         this case, that means the hider watches the seeker.
 
         Args:
@@ -75,6 +85,12 @@ class Director:
         
         
     def is_game_over(self):
+        """
+        Checks if the game is over or not.
+        
+        Args:
+            self (Director): an instance of Director.
+        """
         new_word = ''.join(map(str, self.guesser.blank_list))
         new_guesser = ''.join(map(str, self.guesser.word))
 

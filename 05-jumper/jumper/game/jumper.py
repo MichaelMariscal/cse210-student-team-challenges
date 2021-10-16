@@ -9,8 +9,9 @@ class Jumper:
     Attributes:
         parachute (list): The whole starting parachute
         happy_person (list): The person before the parachute is gone
-        sad_person(list): The person after the parachute is gone
-        letter(boolean): Boolean to tell whether or not the user loses a line of the parachute or not
+        sad_person (list): The person after the parachute is gone
+        letter (boolean): Boolean to tell whether or not the user loses a line of the parachute or not
+        person (list): List to hold a sad_person or happy_person
     """
     def __init__(self):
         """Class constructor. Declares and initializes instance attributes.
@@ -30,9 +31,6 @@ class Jumper:
 
             Args:
                 self (Jumper): An instance of Jumper.
-            
-            Returns:
-                string: New parachute.
             """
         if letter == True:
             print()
@@ -40,17 +38,13 @@ class Jumper:
         elif letter == False:
             print()
             print()
-            self.parachute.pop()[0]
-        
+            del self.parachute[0]
 
     def person_status(self):
-        """Determines if they win or not.
+        """Determines when the parachute is gone
 
             Args:
                 self (Jumper): An instance of Jumper.
-                parachute(string):
-            Returns:
-                string: Person on parachute
             """
         if len(self.parachute) == 0:
             self.person = self.sad_person
