@@ -11,15 +11,6 @@ class Jumper:
         happy_person (list): The person before the parachute is gone
         sad_person(list): The person after the parachute is gone
         letter(boolean): Boolean to tell whether or not the user loses a line of the parachute or not
-    print(" ___")
-    print("/___\\")
-    print("\\   /")
-    print(' \ /')
-    print('  0')
-    print(' /|\\')
-    print(' / \\')
-
-
     """
     def __init__(self):
         """Class constructor. Declares and initializes instance attributes.
@@ -31,22 +22,9 @@ class Jumper:
         self.happy_person = ['   0','  /|\\','  / \\', ' ', '^^^^^^^']
         self.sad_person = ['   X', '  /|\\', '  / \\', ' ', '^^^^^^^']
         self.letter = True
-        #self.parachute = []
+        self.person = ['   0','  /|\\','  / \\', ' ', '^^^^^^^']
 
-    """
-    def parachute(self):
-        Gets a message from the seeker.
 
-            Args:
-                self (Jumper): An instance of Jumper.
-            
-            Returns:
-                string: The parachute.
-            
-        parachute = check_letter()
-        return parachute
-        
-    """
     def check_letter(self, letter):
         """Checks if they lose a line of the parachute or not.
 
@@ -56,12 +34,16 @@ class Jumper:
             Returns:
                 string: New parachute.
             """
-        self.letter = letter
+        #self.letter = letter
         if letter == True:
-            self.parachute
+            print()
+            print('\nCorrect!')
+            print()
         elif letter == False:
-            self.parachute.pop[0]
-        return self.parachute
+            print()
+            print('\nIncorrect...')
+            print()
+            self.parachute.pop()[0]
         
 
     def person_status(self):
@@ -73,10 +55,12 @@ class Jumper:
             Returns:
                 string: Person on parachute
             """
-        if bool(self.parachute):
-            return self.happy_person
+        if len(self.parachute) == 0:
+            self.person = self.sad_person
+           
         else:
-            return self.sad_person
+            self.person = self.happy_person
+           
 
 
 

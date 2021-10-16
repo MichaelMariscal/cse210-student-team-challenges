@@ -27,18 +27,23 @@ class Director:
         self.keep_playing = True
         self.guesser = Guesser()
         
+        
     def start_game(self):
         """Starts the game loop to control the sequence of play.
         
         Args:
             self (Director): an instance of Director.
         """
+        print("-------------------------------------------------------------")
         self.guesser.convert_word_to_list()
-        self.console.write(self.guesser.blank_list)
+        self.guesser.return_new_line()
         while self.keep_playing:
             self.get_inputs()
             self.do_updates()
-        self.console.write(self.jumper.sad_person)
+            self.jumper.person_status() 
+            self.is_game_over()
+
+        print("-------------------------------------------------------------")
 
     def get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -47,13 +52,15 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        
+        print()
         self.console.write_list(self.jumper.parachute)
-        self.console.write_list(self.jumper.happy_person)
+        self.console.write_list(self.jumper.person)
         self.guesser.update_guess()
-        self.guesser.check_guess(self.update_guess.self.guess)
-        self.guesser.check_list(self.guesser.update_guess)
-        self.guesser.return_new_line(self.guesser.store_letters)
+        self.guesser.check_list()
+        self.do_updates()
+        self.guesser.check_guess()
+        print()
+        self.guesser.return_new_line()
         #self.guesser.return_new_line(self.guesser.check_guess.self.blank_list)
 
     def do_updates(self):
@@ -63,18 +70,27 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        guess = self.console.read(self.guesser.guess)
-        letter = self.guesser.check_guess(guess)
+        #guess = self.console.read(self.guesser.guess)
+        letter = self.guesser.letter
         self.jumper.check_letter(letter)
-        self.jumper.person_status()
-    
+        
+        
+        
+    def is_game_over(self):
+        new_word = ''.join(map(str, self.guesser.blank_list))
+        new_guesser = ''.join(map(str, self.guesser.word))
 
-#    def do_outputs(self):
-        """Outputs the important game information for each round of play. In 
-        this case, that means the hider provides a hint.
-
-        Args:
-            self (Director): An instance of Director.
-        """
+        if self.jumper.person == self.jumper.happy_person and new_word != new_guesser:
+            self.keep_playing = True
+        elif self.jumper.person == self.jumper.happy_person and new_word == new_guesser:
+            print('You won! Congrats on not dying.')
+            self.keep_playing = False
+        elif self.jumper.person == self.jumper.sad_person:
+            self.keep_playing = False
+            self.console.write_list(self.jumper.person)
+            print('Game over, thanks for playing!')
+        
+        else:
+            print('Unknown error occurred. Please close down the game and try again.')
         
 
