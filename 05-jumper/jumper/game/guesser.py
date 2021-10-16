@@ -11,7 +11,7 @@ class Guesser():
         self.word = random.choice(self.random_word)
         self.letter = True
         self.guesses = []
-        #self.store_letters = []
+        self.store_letters = []
         self.blank_list = ['_','_','_','_','_']
         self.current_guess = ""
         
