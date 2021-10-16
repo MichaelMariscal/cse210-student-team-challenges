@@ -12,13 +12,14 @@ class Guesser():
         self.letter = True
         self.guesses = []
         self.store_letters = []
+        self.guess = ""
         self.blank_list = ['_','_','_','_','_']
-        self.current_guess = ""
         
     
     def update_guess(self):
         self.guess = input('Select a letter from a-z: ')
         
+
     def check_list(self):
         if self.guess in self.guesses:
             self.letter = False
@@ -40,7 +41,7 @@ class Guesser():
     def convert_word_to_list(self):
         for letter in self.word:
             for char in letter:
-                self.guesses.append(char)
+                self.store_letters.append(char)
 
     def return_new_line(self):
         print()

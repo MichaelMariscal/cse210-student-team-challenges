@@ -34,14 +34,11 @@ class Jumper:
             Returns:
                 string: New parachute.
             """
-        #self.letter = letter
         if letter == True:
             print()
-            print('\nCorrect!')
             print()
         elif letter == False:
             print()
-            print('\nIncorrect...')
             print()
             self.parachute.pop()[0]
         

@@ -57,7 +57,6 @@ class Director:
         self.console.write_list(self.jumper.person)
         self.guesser.update_guess()
         self.guesser.check_list()
-        self.do_updates()
         self.guesser.check_guess()
         print()
         self.guesser.return_new_line()
@@ -70,7 +69,6 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        #guess = self.console.read(self.guesser.guess)
         letter = self.guesser.letter
         self.jumper.check_letter(letter)
         
@@ -88,9 +86,10 @@ class Director:
         elif self.jumper.person == self.jumper.sad_person:
             self.keep_playing = False
             self.console.write_list(self.jumper.person)
-            print('Game over, thanks for playing!')
+            print('Game over! Better luck next time, thanks for playing :)')
         
         else:
             print('Unknown error occurred. Please close down the game and try again.')
+            self.keep_playing = False
         
 
