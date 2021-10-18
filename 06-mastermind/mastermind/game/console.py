@@ -8,3 +8,6 @@ class Console:
 
     def write(self,text):
         print(text)
+
+    def write_list(self,list):
+        print(list)
