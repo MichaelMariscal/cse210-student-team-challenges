@@ -34,4 +34,12 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add your names and emails here
+Name: Bekah Bentley 
+Email: bentley.rebekah314@gmail.com
+
+Name: Lizzie Hunter
+Email: hun18015@byui.edu
+
+Name: Michael Mariscal 
+Email: mar20129@byui.edu
+
