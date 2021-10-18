@@ -1,5 +1,5 @@
 class Console:
-
+    
     def read(self, prompt):
         return input(prompt)
     

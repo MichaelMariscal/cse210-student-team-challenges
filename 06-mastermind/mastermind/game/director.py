@@ -1,5 +1,7 @@
 class Director:
-    
+    """
+    Uses all the classes and directs the game
+    """
 
     def __init__(self):
         pass
