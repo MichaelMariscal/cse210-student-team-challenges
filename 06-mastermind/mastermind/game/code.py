@@ -6,7 +6,7 @@ class Code:
     """
     #defines the attributes for this class
     def __init__(self):
-        self.secret = []
+        self.secret = random.randint(1000,9999)
         self.correct = ""
         self.store_secret = []
         self.guess_list = []
@@ -15,10 +15,11 @@ class Code:
         self.store_correct = []
 
     #sets a secret code for each player in the game
-    def secret_code(self, players):
+    """def secret_code(self, players):
         for player in players:
             code = random.randint(1000,9999)
             self.secret.append(code)
+            """
     
     #checks to see if the code is correct*******
     def add_guess(self, players, guess):
@@ -29,9 +30,8 @@ class Code:
             self.guess_list.append(add)
 
     #stores the secret code as a list to get it ready to be checked in a list
-    def store_code_as_list(self, num_player):
-        secret_code = self.secret[num_player]
-        for number in secret_code:
+    def store_code_as_list(self):
+        for number in self.secret:
             for int in number:
                 self.store_secret.append(int)
 
@@ -46,14 +46,20 @@ class Code:
     def is_correct(self):
         for i in range(5):
             if self.store_guess[i] == self.store_secret[i]:
-                answer = "*"
+                answer = "x"
             elif self.store_guess[i] in self.store_secret:
                 answer = "o"
             else:
-                answer = "x"
+                answer = "*"
             self.store_correct.append(answer)
 
     #sets the list equal to a string to use for the board class
     def make_string(self):
         self.correct = self.store_correct[0] + self.store_correct[1] + self.store_correct[2] + self.store_correct[3]
 
+    #checks if we should keep playing
+    def keep_playing(self, num_player):
+        if self.guess == self.secret:
+            return False
+        if self.guess != self.secret:
+            return True
