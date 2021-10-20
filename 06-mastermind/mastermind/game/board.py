@@ -7,16 +7,15 @@ class Board:
     def __init__(self):
         self.board = []
         self.message = ""
-        self.guess = "What is your guess? "
         
     #sets board equal to the list so it can be printed
-    def define_board(self, players, code, correct):
+    def define_board(self, players, guess_list, correct):
         for player in players:
             for x in range(player+2):
                 if x == 0 or x == player + 1:
                     one = "-" * 20
                 else:
-                    one = "Player " + players[x-1] + ": " + code + ", " + correct
+                    one = "Player " + players[x-1] + ": " + guess_list[x-1] + ", " + correct
                 self.board.append(one)
         return self.board 
 
