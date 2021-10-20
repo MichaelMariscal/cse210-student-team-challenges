@@ -76,4 +76,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        if self.code.secret == self.code.correct:
+            winner = self.switch.get_current()
+            name = winner.get_name()
+            print(f"\n{name} won!")
+            self._keep_playing = False
+        self.switch.next_player()
