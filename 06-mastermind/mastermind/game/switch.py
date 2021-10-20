@@ -1,7 +1,51 @@
 class Switch:
-    """
-    switches which player is currently playing
-    includes the fact that there are undefined number of players
+    """A collection of players. The responsibility of Player is to keep track of the players.
+    
+    Stereotype: 
+        Information Holder
+
+    Attributes:
+        _current (integer): The index of the current player.
+        _players (list): A list of Player objects.
     """
     def __init__(self):
-        pass
+        """The class constructor.
+        
+        Args:
+            self (Roster): an instance of Roster.
+        """
+        self.current = -1
+        self.players = []
+        self.switch = None
+        
+    def add_player(self, player):
+        """Adds the given player to the roster
+        
+        Args:
+            self (Roster): An instance of Roster.
+            player (Player): The player object to add.
+        """
+        if player not in self.players:
+            self.players.append(player)
+
+    def get_current(self):
+        """Gets the current player object.
+        
+        Args:
+            self (Roster): An instance of Roster.
+        
+        Returns:
+            Player: The current player.
+        """
+        return self.players[self.current]
+    
+    def next_player(self):
+        """Advances the turn to the next player.
+        
+        Args:
+            self (Roster): An instance of Roster.
+        """
+        self.current = (self.current + 1) % len(self.players)
+
+    def locate_player(self):
+        self.switch = self.players.index(self.current)
