@@ -37,6 +37,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        self._prepare_game()
         while self.code.keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -48,7 +49,12 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        num_players = input(int("How many people are playing?"))
+        for i in range(num_players+1):
+            name = self.console.read(f"Enter a name for player {i + 1}: ")
+            player = Player(name)
+            self.switch.add_player(player)
+            
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -57,7 +63,11 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        pass
+        board = self.board.define_board(self.switch.players, self.code.guess_list, self.code.correct)
+        self.console.write(board)
+        player = self.switch.get_current()
+        message = self.board.define_message(player)
+        self.console.write(message)
         
 
     def _do_updates(self):
