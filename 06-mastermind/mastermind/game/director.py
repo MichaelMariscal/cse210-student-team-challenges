@@ -1,3 +1,5 @@
+
+
 class Director:
     """A code template for a person who directs the game. The responsibility of 
     this class of objects is to control the sequence of play.
@@ -19,7 +21,11 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        pass
+        self.board = Board()
+        self.switch = Switch()
+        self.code = Code()
+        self.console = Console()
+        self.player = Player()
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -27,7 +33,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        while self._keep_playing:
+        while self.code.keep_playing:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
