@@ -1,13 +1,66 @@
+#import classes/modules
+import random
+
+#declare class
 class Console:
+    """
+    A code template for a computer console. The responsibility of this 
+    class of objects is to get text or numerical input and display text output.
     
+    Stereotype:
+        Service Provider, Interfacer
+
+    Attributes:
+        prompt (string): The prompt to display on each line.
+        text (string): Displays text.
+        list (list): Displays list.
+    """
     def read(self, prompt):
+        """
+        Gets text input from the user through the screen.
+
+        Args: 
+            self (Screen): An instance of Screen.
+            prompt (string): The prompt to display to the user.
+
+        Returns:
+            string: The user's input as text.
+        """
         return input(prompt)
+
+    def read_number(self, prompt):
+        """
+        Gets numerical input from the user through the screen.
+
+        Args: 
+            self (Screen): An instance of Screen.
+            prompt (string): The prompt to display to the user.
+
+        Returns:
+            float: The user's input as a float.
+        """
+        return float(input(prompt))
+        
+    def write(self, text):
+        """
+        Displays the given text on the screen. 
+
+        Args: 
+            self (Screen): An instance of Screen.
+            text (string): The text to display.
+
+        Returns:
+            string: The text as a string.
+        """
+        return print(text)
     
-    def read_num(self,num):
-        return int(input(num))
+    def write_list(self, list):
+        """
+        Displays the given list on the screen. 
 
-    def write(self,text):
-        print(text)
-
-    def write_list(self,list):
-        print(list)
+        Args: 
+            self (Screen): An instance of Screen.
+            list (string): The list to display.
+        """
+        for i in list:
+            print(i)
