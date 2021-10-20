@@ -1,4 +1,8 @@
-
+from game.board import Board
+from game.console import Console
+from game.code import Code
+from game.player import Player
+from game.switch import Switch
 
 class Director:
     """A code template for a person who directs the game. The responsibility of 
