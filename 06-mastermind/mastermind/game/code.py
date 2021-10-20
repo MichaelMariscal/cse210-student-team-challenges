@@ -58,7 +58,7 @@ class Code:
         self.correct = self.store_correct[0] + self.store_correct[1] + self.store_correct[2] + self.store_correct[3]
 
     #checks if we should keep playing
-    def keep_playing(self, num_player):
+    def keep_playing(self):
         if self.guess == self.secret:
             return False
         if self.guess != self.secret:
