@@ -77,6 +77,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        self.code.is_correct()
+        self.switch.next_player()
         pass
  
     def _do_outputs(self):
