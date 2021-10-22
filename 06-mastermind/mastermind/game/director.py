@@ -79,6 +79,7 @@ class Director:
         """
         self.code.is_correct()
         self.switch.next_player()
+        self.code.store_guess_as_list()
         pass
  
     def _do_outputs(self):
