@@ -78,7 +78,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self.code.is_correct()
-        self.switch.next_player()
+        self.switch.current()
         self.code.store_guess_as_list()
         pass
  
