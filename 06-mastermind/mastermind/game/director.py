@@ -49,17 +49,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.num_players = int(input("How many people are playing?"))
+        self.num_players = int(input("How many people are playing? "))
         for i in range(self.num_players):
             name = self.console.read(f"Enter a name for player {i + 1}: ")
             player = Player(name)
             self.switch.add_player(player)
-            next = "----"
-            self.code.guess_list.append(next)
         board = self.board.define_board(self.num_players, self.switch.players, self.code.guess_list, self.code.correct)
         self.console.write(board)
-        self.code.guess_list.clear()
-        self.board.first = False
+        self.code.store_code_as_list()
             
     
     def _get_inputs(self):
@@ -83,10 +80,14 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        guess = self.console.read_number(self.code.guess)
+        self.code.add_guess(self.switch.players, guess)
+        self.code.store_code_as_list()
+        self.code.store_guess_as_list(self.num_players)
         self.code.is_correct()
+        self.code.make_string()
         self.switch.current()
-        self.code.store_guess_as_list()
- 
+        
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
         this case, that means checking if there are stones left and declaring the winner.

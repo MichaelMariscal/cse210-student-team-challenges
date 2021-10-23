@@ -24,5 +24,5 @@ class Board:
 
     #sets message equal to a string using current_player from the switch class
     def define_message(self, current_player):
-        self.message = "{}'s turn : " .format(current_player.title())
+        self.message = "{}'s turn : " .format(current_player)
     
