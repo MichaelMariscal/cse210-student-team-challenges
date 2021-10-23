@@ -14,11 +14,15 @@ class Board:
             if x == 0 or x == num_players + 1:
                 one = "-" * 20
             else:
-                one = "Player " , players[x-1] , ": " , guess_list[x-1] , ", " , correct
+                if not guess_list:
+                    guess_list = "----"
+                    one = "Player {}: {}, {}" .format(players[x-1], guess_list[x-1], correct)
+                else:
+                    one = "Player {}: {}, {}" .format(players[x-1], guess_list[x-1], correct)
             self.board.append(one)
         return self.board 
 
     #sets message equal to a string using current_player from the switch class
     def define_message(self, current_player):
-        self.message = current_player.title() + "'s turn : "
+        self.message = "{}'s turn : " .format(current_player.title())
     
