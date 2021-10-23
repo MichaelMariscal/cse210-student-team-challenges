@@ -29,7 +29,7 @@ class Director:
         self.switch = Switch()
         self.code = Code()
         self.console = Console()
-        self.player = Player()
+        self.num_players = 0
         
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -49,11 +49,17 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        num_players = input(int("How many people are playing?"))
-        for i in range(num_players+1):
+        self.num_players = int(input("How many people are playing?"))
+        for i in range(self.num_players):
             name = self.console.read(f"Enter a name for player {i + 1}: ")
             player = Player(name)
             self.switch.add_player(player)
+            next = "----"
+            self.code.guess_list.append(next)
+        board = self.board.define_board(self.num_players, self.switch.players, self.code.guess_list, self.code.correct)
+        self.console.write(board)
+        self.code.guess_list.clear()
+        self.board.first = False
             
     
     def _get_inputs(self):
@@ -63,7 +69,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        board = self.board.define_board(self.switch.players, self.code.guess_list, self.code.correct)
+        board = self.board.define_board(self.num_players, self.switch.players, self.code.guess_list, self.code.correct)
         self.console.write(board)
         player = self.switch.get_current()
         message = self.board.define_message(player)
@@ -80,7 +86,6 @@ class Director:
         self.code.is_correct()
         self.switch.current()
         self.code.store_guess_as_list()
-        pass
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 

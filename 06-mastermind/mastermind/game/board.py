@@ -9,14 +9,13 @@ class Board:
         self.message = ""
         
     #sets board equal to the list so it can be printed
-    def define_board(self, players, guess_list, correct):
-        for player in players:
-            for x in range(player+2):
-                if x == 0 or x == player + 1:
-                    one = "-" * 20
-                else:
-                    one = "Player " + players[x-1] + ": " + guess_list[x-1] + ", " + correct
-                self.board.append(one)
+    def define_board(self, num_players, players, guess_list, correct):
+        for x in range(num_players + 2):
+            if x == 0 or x == num_players + 1:
+                one = "-" * 20
+            else:
+                one = "Player " , players[x-1] , ": " , guess_list[x-1] , ", " , correct
+            self.board.append(one)
         return self.board 
 
     #sets message equal to a string using current_player from the switch class
