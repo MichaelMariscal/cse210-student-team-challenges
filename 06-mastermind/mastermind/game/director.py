@@ -54,8 +54,6 @@ class Director:
             name = self.console.read(f"Enter a name for player {i + 1}: ")
             player = Player(name)
             self.switch.add_player(player)
-        board = self.board.define_board(self.num_players, self.switch.players, self.code.guess_list, self.code.correct)
-        self.console.write(board)
         self.code.store_code_as_list()
             
     
@@ -67,7 +65,7 @@ class Director:
             self (Director): An instance of Director.
         """
         board = self.board.define_board(self.num_players, self.switch.players, self.code.guess_list, self.code.correct)
-        self.console.write(board)
+        self.console.write_list(board)
         player = self.switch.get_current()
         message = self.board.define_message(player)
         self.console.write(message)

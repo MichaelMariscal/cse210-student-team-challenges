@@ -31,9 +31,10 @@ class Code:
 
     #stores the secret code as a list to get it ready to be checked in a list
     def store_code_as_list(self):
-        for x in self.secret:
-            for i in x:
-                self.store_secret.append(i)
+        for letter in str(self.secret):
+            for char in letter:
+                self.store_secret.append(char)
+
 
     #stores the guess in a list that can be used in a loop
     def store_guess_as_list(self,num_player):

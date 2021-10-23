@@ -16,7 +16,9 @@ class Board:
             else:
                 if not guess_list:
                     guess_list = "----"
-                    one = "Player {}: {}, {}" .format(players[x-1], guess_list[x-1], correct)
+                    correct = "----"
+                    one = "Player {}: {}, {}" .format(players[x-1], guess_list, correct)
+                    guess_list = ""
                 else:
                     one = "Player {}: {}, {}" .format(players[x-1], guess_list[x-1], correct)
             self.board.append(one)
