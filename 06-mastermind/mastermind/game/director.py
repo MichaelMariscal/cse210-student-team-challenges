@@ -66,6 +66,7 @@ class Director:
         """
         board = self.board.define_board(self.num_players, self.switch.players, self.code.guess_list, self.code.correct)
         self.console.write_list(board)
+        print(self.code.guess_list)
         board.clear()
         player = self.switch.get_current()
         message = self.board.define_message(player)
@@ -79,7 +80,6 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self.code.is_guess(self.num_players)
         guess = self.console.read_number(self.code.guess)
         self.code.add_guess(self.num_players, guess)
         self.code.store_code_as_list()
@@ -87,6 +87,7 @@ class Director:
         self.code.is_correct()
         self.code.make_string()
         self.switch.get_current()
+        #self.code.is_guess(self.num_players)
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -101,3 +102,4 @@ class Director:
             print(f"\n{name} won!")
             self._keep_playing = False
         self.switch.next_player()
+

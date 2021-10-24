@@ -23,17 +23,19 @@ class Code:
     
     def is_guess(self, num_players):
         for x in range(num_players):
-            if len(self.guess_list) > 0:
-                    if self.guess_list[x] == "----":
-                        self.guess_list.pop()
+            if x > 0:
+                if self.guess_list[x] == "----":
+                    self.guess_list.pop(x)
+                    #if len(self.guess_list) == num_players:
+                       # self.guess_list.clear()
                         
     #checks to see if the code is correct*******
     def add_guess(self, num_players, guess):
         self.guess_list.append(guess)
         for x in range(num_players):
-            if len(self.guess_list) != num_players:
+            if len(self.guess_list) < num_players:
                 add = "----"
-            self.guess_list.append(add)
+                self.guess_list.append(add)
 
     #stores the secret code as a list to get it ready to be checked in a list
     def store_code_as_list(self):
