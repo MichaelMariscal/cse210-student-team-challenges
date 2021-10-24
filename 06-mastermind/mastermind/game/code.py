@@ -21,11 +21,17 @@ class Code:
             self.secret.append(code)
             """
     
+    def is_guess(self, num_players):
+        for x in range(num_players):
+            if len(self.guess_list) > 0:
+                    if self.guess_list[x] == "----":
+                        self.guess_list.pop()
+                        
     #checks to see if the code is correct*******
-    def add_guess(self, players, guess):
+    def add_guess(self, num_players, guess):
         self.guess_list.append(guess)
-        for x in players:
-            if self.guess_list[x] == False:
+        for x in range(num_players):
+            if len(self.guess_list) != num_players:
                 add = "----"
             self.guess_list.append(add)
 
@@ -37,11 +43,10 @@ class Code:
 
 
     #stores the guess in a list that can be used in a loop
-    def store_guess_as_list(self,num_player):
-        current_guess = self.guess_list[num_player]
-        for number in current_guess:
-            for int in number:
-                self.store_guess.append(int)
+    def store_guess_as_list(self,guess):
+        for letter in str(guess):
+            for char in letter:
+                self.store_guess.append(char)
 
     #checks whether or not the code is correct and returns the symbols used for the game
     def is_correct(self):
