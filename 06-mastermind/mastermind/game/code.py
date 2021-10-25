@@ -8,7 +8,7 @@ class Code:
     def __init__(self):
         self.secret = random.randint(1000,9999)
         self.correct = ""
-        self.store_secret = []
+        self.store_secret = [] #string code lives
         self.guess_list = []
         self.store_guess = []
         self.guess = "What is your guess? "
@@ -71,3 +71,6 @@ class Code:
             return False
         if self.guess != self.secret:
             return True
+
+    def clear_list(self):
+        self.guess_list.clear()
