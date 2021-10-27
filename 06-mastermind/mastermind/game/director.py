@@ -42,6 +42,7 @@ class Director:
             self._get_inputs()
             self._do_updates()
             self._do_outputs()
+           # self.code.clear_list()
 
     def _prepare_game(self):
         """Prepares the game before it begins. In this case, that means getting the player names and adding them to the roster.
@@ -87,6 +88,7 @@ class Director:
         self.code.is_correct()
         self.code.make_string()
         self.switch.get_current()
+        
         #self.code.is_guess(self.num_players)
         
     def _do_outputs(self):
