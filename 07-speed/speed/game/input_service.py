@@ -28,12 +28,11 @@ class InputService:
         """
         return raylibpy.window_should_close()
 
+"""
     def get_letter(self):
         key_int = raylibpy.get_key_pressed()
-
         key_string = None
-
         if key_int != 1:
             key_string = chr(key_int)
-        
         return key_string
+"""

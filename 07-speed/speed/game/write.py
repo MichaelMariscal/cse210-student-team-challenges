@@ -1,8 +1,8 @@
-from game import constants
+import random
 from game.actor import Actor
 from game.point import Point
 
-class Write:
+class Write(Actor):
     """
     Take input from user
     """

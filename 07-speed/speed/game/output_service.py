@@ -68,17 +68,9 @@ class OutputService:
         position = actor.get_position()
         x = position.get_x()
         y = position.get_y()
-        width = actor.get_width()
-        height = actor.get_height()
 
         is_dark_text = True
 
-        if width > 0 and height > 0:
-            self.draw_box(x, y, width, height)
-            is_dark_text = False
-        
-        if text != "":
-            self.draw_text(x, y, text, is_dark_text)
         #self._screen.print_at(text, x, y, 7) # WHITE
         #raylibpy.draw_text(text, x, y, 16, raylibpy.BLUE)
 
