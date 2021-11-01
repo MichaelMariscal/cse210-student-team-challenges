@@ -9,41 +9,46 @@ class Display(Actor):
     """
     def __init__(self):
         super().__init__()
-        self.word_list = []
+        self.screen_list = []
+        self.remove_list = []
         self.word = ""
         self.X = constants.MAX_X
         self.Y = constants.MAX_Y
         self.prepare_game()
 
     def prepare_game(self):
-        for word in range(5):
+        for i in range(5):
             self.choose_word()
             self.word = self._text
-            self.set_position()
-            self.set_velocity()
+            self.screen_list.append(self.word)
+            self.randomize_velocity
+            self.randomize_position()
 
 
     def choose_word(self):
         self.word = random.choice(constants.LIBRARY)
 
     def control_list(self, word):
-        range_x = (1,self.X)
-        range_y = (1, self.Y)
-        if word in range_x and word in range_y:
-            self.word_list.append(word)
-        else:
-            self.word_list.pop(word)
+        x1 = word.get_position().get_x() 
+        if x1 < 5:
+            self.move_word(word)
+            self.remove_word(word)
 
-
-    def set_position(self):
-        x = random.randint(1, constants.MAX_X - 2)
-        y = random.randint(1, constants.MAX_Y -2)
+    def randomize_position(self):
+        #another option for x constants.MAX_X - constants.DEFAULT_FONT_SIZE
+        x = random.randint(1, 5)
+        y = random.randint(1, constants.MAX_Y - constants.DEFAULT_FONT_SIZE)
         position = Point(x,y)
         self.set_position(position)
 
-    def set_velocity(self):
-        pass
+    def randomize_velocity(self):
+        velocity = random.randint(constants.MIN_VELOCITY, constants.MAX_VELOCITY)
+        self.set_velocity(velocity)
 
+    def move_word(self, word):
+       self.screen_list.remove(word)
+       self.remove_list.append(word)
 
-    
+    def remove_word(self, word):
+        self.remove_list.remove(word)
         
