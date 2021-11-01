@@ -14,7 +14,7 @@ class Write:
         self.set_text("Buffer: ")
 
     def user_typing(self):
-        user = input("")
-        self.set_text(f"Buffer: {user}")
+        user = input("Buffer: ")
+        self.set_text(user)
 
     
