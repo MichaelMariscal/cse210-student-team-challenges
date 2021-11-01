@@ -62,7 +62,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        user_input = "" #self._input_service.get_letter()
+        user_input = '' #self._input_service.get_letter()
         self._write.user_typing(user_input)
         
 

@@ -1,5 +1,4 @@
 import sys
-from game.point import Point
 import raylibpy
 
 class InputService:
@@ -20,7 +19,7 @@ class InputService:
         Args:
             self (InputService): An instance of InputService.
         """
-        self._current = Point(1, 0)
+        pass
 
     def window_should_close(self):
         """

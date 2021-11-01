@@ -26,7 +26,7 @@ class Display(Actor):
         self.word = random.choice(constants.LIBRARY)
 
     def control_list(self, word):
-        x1 = word.get_position().get_x() 
+        x1 = word.get_x() 
         if x1 < 5:
             self.move_word(word)
             self.remove_word(word)
