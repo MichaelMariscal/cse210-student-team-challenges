@@ -13,8 +13,7 @@ class Write:
         self.set_position(position)
         self.set_text("Buffer: ")
 
-    def user_typing(self):
-        user = input("Buffer: ")
-        self.set_text(user)
+    def user_typing(self, user_input):
+        self.set_text(f"Buffer: {user_input}")
 
     
