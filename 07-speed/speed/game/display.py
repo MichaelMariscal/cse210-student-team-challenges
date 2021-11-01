@@ -12,8 +12,6 @@ class Display(Actor):
         self.screen_list = []
         self.remove_list = []
         self.word = ""
-        self.X = constants.MAX_X
-        self.Y = constants.MAX_Y
         self.prepare_game()
 
     def prepare_game(self):
@@ -23,7 +21,6 @@ class Display(Actor):
             self.screen_list.append(self.word)
             self.randomize_velocity
             self.randomize_position()
-
 
     def choose_word(self):
         self.word = random.choice(constants.LIBRARY)
