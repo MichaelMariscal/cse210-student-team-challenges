@@ -7,6 +7,14 @@ class Write:
     Take input from user
     """
     def __init__(self):
-        pass
+        super().__init__()
+        self._typing = ""
+        position = Point(0,370)
+        self.set_position(position)
+        self.set_text("Buffer: ")
+
+    def user_typing(self):
+        user = input("")
+        self.set_text(f"Buffer: {user}")
 
     
