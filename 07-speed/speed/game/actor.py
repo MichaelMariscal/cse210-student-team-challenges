@@ -26,20 +26,6 @@ class Actor:
         self._text = ""
         self._position = Point(0, 0)
         self._velocity = Point(0, 0)
-        self._width = 0
-        self._height = 0
-
-    def get_width(self):
-        return self._width
-
-    def set_width(self, width):
-        self._width = width
-    
-    def get_height(self):
-        return self._height
-
-    def set_height(self, height):
-        self._height = height
         
     def get_position(self):
         """Gets the actor's position in 2d space.
@@ -89,9 +75,8 @@ class Actor:
         y = self._position.get_y()
         dx = self._velocity.get_x()
         dy = self._velocity.get_y()
-        x = (x + dx) % constants.MAX_X
-        y = (y + dy) % constants.MAX_Y
-
+        x = (x + dx)
+        
         position = Point(x, y)
         self._position = position
     
