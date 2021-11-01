@@ -4,7 +4,7 @@ import raylibpy
 from game import constants
 from game.display import Display
 from game.write import Write
-from game.match import Match
+#from game.match import Match
 from game.score_board import ScoreBoard
 from game.input_service import InputService
 
@@ -22,7 +22,7 @@ class Director:
         """
         self._display = Display()
         self._write = Write()
-        self._match = Match()
+        #self._match = Match()
         self._score_board = ScoreBoard()
         self._input_service = input_service
         self._keep_playing = True
@@ -35,6 +35,9 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        print("Starting game...")
+        self._output_service.open_window("Speed")
+
         self._prepare_game()
         while self._keep_playing:
             self._get_inputs()
@@ -62,7 +65,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        user_input = '' #self._input_service.get_letter()
+        user_input = self._input_service.get_letter()
         self._write.user_typing(user_input)
         
 
@@ -73,8 +76,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        word = ''#insert word here!!!!
-        self._display.control_list(word)
+        self._display.control_list()
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 

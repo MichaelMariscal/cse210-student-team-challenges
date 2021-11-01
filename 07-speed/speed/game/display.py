@@ -25,11 +25,12 @@ class Display(Actor):
     def choose_word(self):
         self.word = random.choice(constants.LIBRARY)
 
-    def control_list(self, word):
-        x1 = word.get_x() 
-        if x1 < 5:
-            self.move_word(word)
-            self.remove_word(word)
+    def control_list(self):
+        for word in self.screen_list:
+            x1 = word.get_position().get_x()
+            if x1 < 5:
+                self.move_word(word)
+                self.remove_word(word)
 
     def randomize_position(self):
         #another option for x constants.MAX_X - constants.DEFAULT_FONT_SIZE
