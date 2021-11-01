@@ -14,7 +14,7 @@ class Director:
     this class of objects is to control the sequence of play
     """
 
-    def __init__(self):
+    def __init__(self, input_service, output_service):
         """The class constructor.
         
         Args:
@@ -24,7 +24,9 @@ class Director:
         self._write = Write()
         self._match = Match()
         self._score_board = ScoreBoard()
-        self._input_service = InputService()
+        self._input_service = input_service
+        self._keep_playing = True
+        self._output_service = output_service
 
         
     def start_game(self):
@@ -60,7 +62,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        user_input = self._input_service.get_letter()
+        user_input = '' #self._input_service.get_letter()
         self._write.user_typing(user_input)
         
 

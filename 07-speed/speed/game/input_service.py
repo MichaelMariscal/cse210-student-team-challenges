@@ -1,5 +1,4 @@
 import sys
-from game.point import Point
 import raylibpy
 
 class InputService:
@@ -20,7 +19,7 @@ class InputService:
         Args:
             self (InputService): An instance of InputService.
         """
-        self._current = Point(1, 0)
+        pass
 
     def window_should_close(self):
         """
@@ -28,12 +27,11 @@ class InputService:
         """
         return raylibpy.window_should_close()
 
+"""
     def get_letter(self):
         key_int = raylibpy.get_key_pressed()
-
         key_string = None
-
         if key_int != 1:
             key_string = chr(key_int)
-        
         return key_string
+"""
