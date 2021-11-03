@@ -4,7 +4,7 @@ import raylibpy
 from game import constants
 from game.display import Display
 from game.write import Write
-#from game.match import Match
+from game.match import Match
 from game.score_board import ScoreBoard
 from game.input_service import InputService
 
@@ -22,11 +22,13 @@ class Director:
         """
         self._display = Display()
         self._write = Write()
-        #self._match = Match()
+        self._match = Match()
         self._score_board = ScoreBoard()
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
+
+        self.user_input = self._input_service.get_letter()
 
         
     def start_game(self):
@@ -65,9 +67,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        user_input = self._input_service.get_letter()
-        self._write.user_typing(user_input)
-        
+        self._write.user_typing(self.user_input)
+
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -76,7 +77,11 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        self._display.move_next()
+        #is_correct = self._match.check
         self._display.control_list()
+        self._write.clear_buffer(is_correct,self.user_input)
+        
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -85,4 +90,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        self._output_service.clear_screen()
+        self._output_service.draw_actor(self._display)
+        self._output_service.draw_actors(self._write)
+        self._output_service.draw_actor(self._score_board)
+        self._output_service.flush_buffer()
 
