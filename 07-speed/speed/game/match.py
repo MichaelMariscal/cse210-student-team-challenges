@@ -3,7 +3,7 @@ from game.display import Display
 
 class Match:
     
-    
+    """
     def __init__(self):
         self.screen_list = []
 
@@ -21,18 +21,17 @@ class Match:
 
     screen_list = random.randint(0, (len(words)-1))
 
-def screen_list(str1):
-    count = 0
-    for char in str1:
-        count+=1
-    return count
-print(#this needs to be the scorebaord and adding the total score)
+    def screen_list(str1):
+        count = 0
+        for char in str1:
+            count+=1
+        return count
 
 
 
 
 
-
+"""
 
 
 
