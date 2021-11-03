@@ -16,4 +16,8 @@ class Write(Actor):
     def user_typing(self, user_input):
         self.set_text(f"Buffer: {user_input}")
 
+    def clear_buffer(self, is_correct, user_input):
+        if is_correct:
+            user_input.clear()
+
     
