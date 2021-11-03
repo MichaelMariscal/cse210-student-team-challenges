@@ -41,7 +41,7 @@ class Display(Actor):
 
     def randomize_velocity(self):
         velocity = random.randint(constants.MIN_VELOCITY, constants.MAX_VELOCITY)
-        self.set_velocity(velocity)
+        self.set_velocity(-velocity)
 
     def move_word(self, word):
        self.screen_list.remove(word)
