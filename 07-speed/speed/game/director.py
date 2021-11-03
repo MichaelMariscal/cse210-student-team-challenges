@@ -85,4 +85,4 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-
+        self._output_service.draw_actor()

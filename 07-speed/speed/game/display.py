@@ -17,9 +17,9 @@ class Display(Actor):
     def prepare_game(self):
         for i in range(5):
             self.choose_word()
-            self.word = self._text
+            self.set_text(self.word)
             self.screen_list.append(self.word)
-            self.randomize_velocity
+            self.randomize_velocity()
             self.randomize_position()
 
     def choose_word(self):
