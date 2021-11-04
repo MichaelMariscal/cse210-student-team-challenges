@@ -46,7 +46,7 @@ if word in buffer
     for word in matched_words
     self.words.remove(word
     self.buffer.clear)
-
+"""
 
 
 #int.point = len(word)

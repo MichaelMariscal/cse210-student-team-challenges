@@ -80,7 +80,7 @@ class Director:
         self._display.move_next()
         #is_correct = self._match.check
         self._display.control_list()
-        self._write.clear_buffer(is_correct,self.user_input)
+        #self._write.clear_buffer(is_correct,self.user_input)
         
  
     def _do_outputs(self):
