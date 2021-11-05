@@ -1,57 +1,41 @@
 from game.display import Display
-
-
-class Match:
+from game.actor import Actor
+from game.point import Point
+class Match(Actor):
     
-    """
+    
     def __init__(self):
         self.screen_list = []
         self.get_text = ""
-
-
-    def check_word(self):
-        for char in self.screen_list:
-            if char in word: 
-                print(char)
-
-        for i in range(len(screen_list)):
-            if screen_list[i] == guess:
-                display = display[0:i] + guess + display[i+1:]
-
-def _screen_match(self):
-    match = self.screen_list()
-    if self.screen_list == True:
-
-
-    screen_list = random.randint(0, (len(words)-1))
-
-def screen_list(str1):
-    count = 0
-    for char in str1:
-        count+=1
-    return count
-print(#this needs to be the scorebaord and adding the total score)
-def screen_match(self):
-    words = self.screen_list()
-    for words in self.screen_list:
-
-
-if word in buffer
+        self.words = []
+        self._points = 0
+        self.set_text(f"Score: {self._points}")
+        self.set_text(f"Buffer: {self.words}")
+        position = Point(1, constants.MAX_Y)
 
 
 
-    for word in self.screen_list:
-        if self.buffer .is_match(word):
-
-    for word in matched_words
-    self.words.remove(word
-    self.buffer.clear)
-"""
+    def check_word(self, letter):
+         self.words += letter
+         self.set_text(f"Buffer: {self.words}")
+   
 
 
+
+
+    def add_points(self,points):
+        self._points += points
+        self.set_text(f"Score: {self._points}")
+        #int.point = len(word)
+
+    #def grab_word(self):
+            #return self.words
+
+
+
+
+ #if self.get_text in self.screen_list:
+# How to set position for the score on the top left
 #int.point = len(word)
-#between two strings compare for the list that is storing the words
-#Match is something that is used to check the list of words displayed on the screen.
-#needs something that adds to list. Check from snake director
-# Looping through the display list. 2 attributes from the other classes. 
-# Keep track of the length of the word and add or subtract points for each letter. Score board will grab the points at the end.
+#match = self.screen_list()
+#if self.screen_list == True:
