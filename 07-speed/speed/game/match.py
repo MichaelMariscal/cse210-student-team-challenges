@@ -6,7 +6,6 @@ class Match(Actor):
     
     def __init__(self):
         self.screen_list = []
-        
         self.words = []
         
         
@@ -25,8 +24,18 @@ class Match(Actor):
          
          
          #matches = [FALSE]*len
-   
 
+    #def check_word(self, text)
+    #if text != "*":
+        #self._text += text
+        #self._buffer.set_text = text
+    #else:
+        #self._text = "Buffer: "
+        #self._buffer.set_text()
+    
+    def is_match(self, user_text, word):
+        return False
+        # we need to get the text out of the word and compare with that text.
 
 
     #def add_points(self,points):

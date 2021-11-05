@@ -19,7 +19,7 @@ class InputService:
         Args:
             self (InputService): An instance of InputService.
         """
-        self.key_string = ""
+        pass
 
     def window_should_close(self):
         """
@@ -28,12 +28,12 @@ class InputService:
         return raylibpy.window_should_close()
 
 
-    def is_letter(self):
-        return raylibpy.get_key_pressed()
+    
 
  
     def get_letter(self):
-        key_int = self.is_letter()
+        key_string = ""
+        key_int = raylibpy.get_key_pressed()
         if key_int != -1:
-            self.key_string = chr(key_int)
-        return self.key_string
+            key_string = chr(key_int)
+        return key_string

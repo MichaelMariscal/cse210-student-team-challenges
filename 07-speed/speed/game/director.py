@@ -27,7 +27,7 @@ class Director:
         self._keep_playing = True
         self._output_service = output_service
 
-        self.user_input = self._input_service.get_letter()
+        
 
         
     def start_game(self):
@@ -66,7 +66,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._write.user_typing(self.user_input)
+        letter = self._input_service.get_letter()
+        if letter != "":    
+            self._write.add_letter(letter)
 
 
     def _do_updates(self):
@@ -78,10 +80,11 @@ class Director:
         """
         self._display.move()
         self._display.add_word()
-        #is_correct = self._match.check
+        for word in self._display.screen_list:
+            found_match = self._match.is_match(self._write.user_input, word)
+        #if we found a match get the points from the word and add them to the scoreboard and clear the buffer and remove the word from the list
         self._display.control_list()
-        #self._write.clear_buffer(is_correct,self.user_input)
-        
+
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 

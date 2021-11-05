@@ -7,16 +7,15 @@ class Write(Actor):
     """
     def __init__(self):
         super().__init__()
-
+        self.user_input = ""
         position = Point(0,380)
         self.set_position(position)
         self.set_text("Buffer: ")
 
-    def user_typing(self, user_input):
-        self.set_text(f"Buffer: {user_input}")
+    def add_letter(self, letter):
+        self.user_input += letter
+        self.set_text(f"Buffer: {self.user_input}")
 
-    def clear_buffer(self, is_correct, user_input):
+    def clear_buffer(self, is_correct):
         if is_correct:
-            user_input.clear()
-
-    
+            self.user_input.clear()
