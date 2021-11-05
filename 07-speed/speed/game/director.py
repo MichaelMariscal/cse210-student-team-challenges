@@ -90,7 +90,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-        self._output_service.draw_actor(self._display)
+        #self._output_service.draw_actors(self._display.screen_list)
         self._output_service.draw_actor(self._score_board)
         self._output_service.draw_actor(self._write)
         self._output_service.flush_buffer()

@@ -46,7 +46,7 @@ class OutputService:
         """
         Outputs the provided text at the desired location.
         """
-        color = raylibpy.WHITE
+        color = raylibpy.BLACK
 
         if is_dark_text:
             color = raylibpy.BLACK
@@ -72,7 +72,7 @@ class OutputService:
         is_dark_text = True
 
         #self._screen.print_at(text, x, y, 7) # WHITE
-        #raylibpy.draw_text(text, x, y, 16, raylibpy.BLUE)
+        raylibpy.draw_text(text, x, y, 16, raylibpy.BLACK)
 
     def draw_actors(self, actors):
         """Renders the given list of actors on the screen.
@@ -83,6 +83,7 @@ class OutputService:
         """ 
         for actor in actors:
             self.draw_actor(actor)
+            print('this works')
     
     def flush_buffer(self):
         """Renders the screen.
