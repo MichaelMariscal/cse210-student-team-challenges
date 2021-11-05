@@ -57,7 +57,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self._display.prepare_game()
-
+    
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -76,7 +76,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        self._display.move_next()
+        self._display.move()
+        self._display.add_word()
         #is_correct = self._match.check
         self._display.control_list()
         #self._write.clear_buffer(is_correct,self.user_input)
@@ -90,7 +91,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self._output_service.clear_screen()
-        #self._output_service.draw_actors(self._display.screen_list)
+        self._output_service.draw_actors(self._display.screen_list)
         self._output_service.draw_actor(self._score_board)
         self._output_service.draw_actor(self._write)
         self._output_service.flush_buffer()

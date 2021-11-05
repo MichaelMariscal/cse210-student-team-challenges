@@ -8,7 +8,7 @@ class Write(Actor):
     def __init__(self):
         super().__init__()
 
-        position = Point(0,370)
+        position = Point(0,380)
         self.set_position(position)
         self.set_text("Buffer: ")
 
