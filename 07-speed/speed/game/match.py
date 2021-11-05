@@ -11,7 +11,7 @@ class Match(Actor):
         self._points = 0
         self.set_text(f"Score: {self._points}")
         self.set_text(f"Buffer: {self.words}")
-        position = Point(1, constants.MAX_Y)
+        #position = Point(1, constants.MAX_Y)
 
 
 
@@ -26,9 +26,9 @@ class Match(Actor):
         self._points += points
         self.set_text(f"Score: {self._points}")
 
-    def add_points(self,points):
-        self._points += points
-        self.set_text(f"Score: {self._points}")
+    #def add_points(self,points):
+        #self._points += points
+        #self.set_text(f"Score: {self._points}")
         #int.point = len(word)
 
     #def grab_word(self):
