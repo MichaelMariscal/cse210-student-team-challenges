@@ -6,7 +6,6 @@ from game.display import Display
 from game.write import Write
 from game.match import Match
 from game.score_board import ScoreBoard
-from game.input_service import InputService
 
 
 class Director:
@@ -92,7 +91,6 @@ class Director:
         """
         self._output_service.clear_screen()
         self._output_service.draw_actor(self._display)
-        self._output_service.draw_actors(self._write)
         self._output_service.draw_actor(self._score_board)
+        self._output_service.draw_actor(self._write)
         self._output_service.flush_buffer()
-

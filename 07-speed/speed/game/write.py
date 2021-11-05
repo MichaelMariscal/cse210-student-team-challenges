@@ -1,4 +1,3 @@
-import random
 from game.actor import Actor
 from game.point import Point
 
@@ -8,7 +7,7 @@ class Write(Actor):
     """
     def __init__(self):
         super().__init__()
-        self._typing = ""
+
         position = Point(0,370)
         self.set_position(position)
         self.set_text("Buffer: ")
@@ -16,9 +15,8 @@ class Write(Actor):
     def user_typing(self, user_input):
         self.set_text(f"Buffer: {user_input}")
 
-"""
     def clear_buffer(self, is_correct, user_input):
         if is_correct:
             user_input.clear()
-"""
+
     
