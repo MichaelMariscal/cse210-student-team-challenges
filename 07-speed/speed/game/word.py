@@ -5,8 +5,9 @@ from game.point import Point
 
 
 class Word(Actor):
+    """
 
-
+    """
 
     def __init__(self):
         super().__init__()
@@ -24,3 +25,7 @@ class Word(Actor):
         x_velocity = random.randint(constants.MIN_VELOCITY, constants.MAX_VELOCITY)
         velocity = Point(-x_velocity, 0)
         self.set_velocity(velocity)
+
+    def get_points(self, word):
+        points = len(word)
+        return points

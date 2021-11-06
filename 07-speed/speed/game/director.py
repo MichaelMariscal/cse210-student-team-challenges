@@ -1,4 +1,5 @@
 from time import sleep
+import random
 
 import raylibpy
 from game import constants
@@ -6,6 +7,7 @@ from game.display import Display
 from game.write import Write
 from game.match import Match
 from game.score_board import ScoreBoard
+from game.word import Word
 
 
 class Director:
@@ -26,6 +28,7 @@ class Director:
         self._input_service = input_service
         self._keep_playing = True
         self._output_service = output_service
+        self._word = Word()
 
         
 
@@ -78,10 +81,26 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
+        remove_words = []
         self._display.move()
-        self._display.add_word()
-        for word in self._display.screen_list:
-            found_match = self._match.is_match(self._write.user_input, word)
+        self.add_words()
+        words = self._display.screen_list
+        for word in words:
+            user_text = str(self._write.user_input)
+
+            input_word = ""
+            #self._display.screen_list[word]
+            found_match = self._match.is_match(user_text, input_word)
+            print(found_match)
+            print(input_word)
+            print(user_text)
+            if found_match:
+               points = self._word.get_points(word)
+               self._score_board.add_points(points)
+               self._write.clear_buffer(True)
+               self._display.move_word(word, remove_words)
+        remove_words.clear()
+
         #if we found a match get the points from the word and add them to the scoreboard and clear the buffer and remove the word from the list
         self._display.control_list()
 
@@ -98,3 +117,9 @@ class Director:
         self._output_service.draw_actor(self._score_board)
         self._output_service.draw_actor(self._write)
         self._output_service.flush_buffer()
+
+
+    def add_words(self):
+        wild_card = random.randint(1,100)
+        if wild_card < 3:
+            self._display.add_word()

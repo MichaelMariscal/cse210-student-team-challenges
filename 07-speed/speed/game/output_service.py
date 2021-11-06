@@ -83,7 +83,6 @@ class OutputService:
         """ 
         for actor in actors:
             self.draw_actor(actor)
-            print('this works')
     
     def flush_buffer(self):
         """Renders the screen.

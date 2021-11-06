@@ -22,17 +22,18 @@ class Display(Actor):
         return next_word
 
     def control_list(self):
+        remove_words = []
         for word in self.screen_list:
             x1 = word.get_position().get_x()
             if x1 < 5:
-                #self.move_word(word)
-                #self.remove_word(word)
-                pass
+                self.move_word(word, remove_words)
+        remove_words.clear()
 
 
-    def move_word(self, word):
-       self.screen_list.remove(word)
-       self.remove_list.append(word)
+    def move_word(self, word, remove_list):
+        remove_list.append(word)
+        self.screen_list.remove(word)
+       
 
     def remove_word(self, word):
         self.remove_list.remove(word)
@@ -41,7 +42,6 @@ class Display(Actor):
         for word in self.screen_list:
             word.move_next()
 
-    
     def add_word(self):
         next_word = self.choose_word()
         w = Word()

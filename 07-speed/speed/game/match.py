@@ -1,17 +1,16 @@
 from game.display import Display
 from game.actor import Actor
 from game.point import Point
+
 class Match(Actor):
+    """
     
-    
+    """
     def __init__(self):
         self.screen_list = []
         self.words = []
         
-        
         #position = Point(1, constants.MAX_Y)
-
-
 
     def check_word(self, letter):
          _screen_list = [{self.screen_list}]
@@ -20,6 +19,13 @@ class Match(Actor):
              if item in all_text:
                  print("")
          
+
+    def is_match(self, user_text, word):
+        if word in user_text:
+            print('this works')
+            return True
+        else:
+            return False
          
          
          
@@ -33,8 +39,8 @@ class Match(Actor):
         #self._text = "Buffer: "
         #self._buffer.set_text()
     
-    def is_match(self, user_text, word):
-        return False
+   # def is_match(self, user_text, word):
+    #    return False
         # we need to get the text out of the word and compare with that text.
 
 

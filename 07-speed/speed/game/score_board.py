@@ -19,7 +19,7 @@ class ScoreBoard(Actor):
         """
         super().__init__()
         self._points = 0
-        position = Point(1, 0)
+        position = Point(3, 0)
         self.set_position(position)
         self.set_text(f"Score: {self._points}")
     
