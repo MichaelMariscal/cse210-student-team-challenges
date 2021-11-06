@@ -20,6 +20,8 @@ class Director:
         
         Args:
             self (Director): an instance of Director.
+            self (InputService): an instance of InputService.
+            self (OutputService): an instance of OutputService.
         """
         self._display = Display()
         self._write = Write()
@@ -39,6 +41,7 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
+        self._introduction()
         print("Starting game...")
         self._output_service.open_window("Speed")
 
@@ -51,10 +54,14 @@ class Director:
             if self._input_service.window_should_close():
                 self._keep_playing = False
 
+        print()
         print("Game over!")
+        print(f'Final score: {self._score_board._points}')
+        print()
 
     def _prepare_game(self):
-        """Prepares the game before it begins. In this case, that means getting the player names and adding them to the roster.
+        """Prepares the game before it begins. In this case, that means setting up the game, and getting words
+        on the screen to guess.
         
         Args:
             self (Director): An instance of Director.
@@ -64,7 +71,7 @@ class Director:
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
-        that means getting the move from the current player.
+        that means getting the text from user to match.
 
         Args:
             self (Director): An instance of Director.
@@ -76,7 +83,7 @@ class Director:
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
-        this case, that means updating the board with the current move.
+        this case, that means updating the words and checking for matches.
 
         Args:
             self (Director): An instance of Director.
@@ -96,13 +103,12 @@ class Director:
                 if word in self._display.screen_list:
                     self._display.move_word(word, remove_words)
 
-        #if we found a match get the points from the word and add them to the scoreboard and clear the buffer and remove the word from the list
         self._display.control_list()
 
  
     def _do_outputs(self):
-        """Outputs the important game information for each round of play. In 
-        this case, that means checking if there are stones left and declaring the winner.
+        """Outputs the important game information for each round of play. In this case, that means clearing the screen 
+        drawing actors and buffer on screen as well.
 
         Args:
             self (Director): An instance of Director.
@@ -115,6 +121,26 @@ class Director:
 
 
     def add_words(self):
+        """Based off of a random number, this method determines whether or not to add another 
+        word to the screen.
+
+        Args:
+            self (Director): An instance of Director.
+        """
         wild_card = random.randint(1,100)
-        if wild_card < 3:
+        if wild_card < 4:
             self._display.add_word()
+
+    def _introduction(self):
+        """Introduces the game.
+
+        Args:
+            self (Director): An instance of Director.
+        
+        """
+        print()
+        print('Welcome to the game of Speed! In this game your typing skills will be challenged and improved.')
+        print('Once the game pops up, simply just start typing words in until you get it right. No need to worry about the backspace ;)')
+        print('Good luck and have fun!')
+        print()
+        sleep(10)

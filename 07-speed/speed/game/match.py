@@ -4,23 +4,25 @@ from game.point import Point
 
 class Match(Actor):
     """
-    
+    Determines if the word is in user_input to signify a match or not.
     """
     def __init__(self):
-        self.screen_list = []
-        self.words = []
+        """The class constructor.
         
-        #position = Point(1, constants.MAX_Y)
-
-    def check_word(self, letter):
-         _screen_list = [{self.screen_list}]
-         all_text = input(" ")
-         for item in _screen_list:
-             if item in all_text:
-                 print("")
+        Args:
+            self (Match): An instance of Match.
+        """
+        pass
          
 
     def is_match(self, user_text, word):
+        """Determines match and returns boolean.
+        
+        Args:
+            self (Match): An instance of Match.
+            string (word): The word on screen.
+            string (user_text): The user's input.
+        """
         if word in user_text:
             return True
         else:
@@ -28,39 +30,4 @@ class Match(Actor):
          
          
          
-         #matches = [FALSE]*len
-
-    #def check_word(self, text)
-    #if text != "*":
-        #self._text += text
-        #self._buffer.set_text = text
-    #else:
-        #self._text = "Buffer: "
-        #self._buffer.set_text()
-    
-   # def is_match(self, user_text, word):
-    #    return False
-        # we need to get the text out of the word and compare with that text.
-
-
-    #def add_points(self,points):
-        #self._points += points
-        #self.set_text(f"Score: {self._points}")
-
-    #def add_points(self,points):
-        #self._points += points
-        #self.set_text(f"Score: {self._points}")
-        #int._points = len(word)
-
-    #def grab_word(self):
-            #return self.words
-
-
-
-
- #if self._buffer in self.screen_list:
- #clear buffer
-# How to set position for the score on the top left
-#int.point = len(word)
-#match = self.screen_list()
-#if self.screen_list == True:
+       

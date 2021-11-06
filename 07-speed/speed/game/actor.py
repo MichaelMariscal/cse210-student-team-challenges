@@ -13,8 +13,6 @@ class Actor:
         _text (string): The textual representation of the actor.
         _position (Point): The actor's position in 2d space.
         _velocity (Point): The actor's speed and direction.
-        _width (int): The actor's width
-        _height (int): The actor's height
     """
 
     def __init__(self):
@@ -64,9 +62,7 @@ class Actor:
         return self._velocity
     
     def move_next(self):
-        """Moves the actor to its next position according to its velocity. Will 
-        wrap the position from one side of the screen to the other when it 
-        reaches the boundary in either direction.
+        """Moves the actor to its next position according to its velocity.
         
         Args:
             self (Actor): an instance of Actor.

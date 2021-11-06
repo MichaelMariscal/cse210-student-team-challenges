@@ -3,14 +3,11 @@ import raylibpy
 
 class InputService:
     """Detects player input. The responsibility of the class of objects is
-    to detect player keypresses and translate them into a point representing
-    a direction (or velocity).
+    to detect player keypresses and translate them into a string to represent the text the user 
+    is typing.
 
     Stereotype: 
         Service Provider
-
-    Attributes:
-        _current (Point): The last direction that was pressed.
     """
 
     def __init__(self):
@@ -22,13 +19,21 @@ class InputService:
         pass
 
     def window_should_close(self):
-        """
-        Determines if the user is trying to close the window
+        """Determines if the user is trying to close the window
+
+        Args:
+            self (InputService): An instance of InputService.
         """
         return raylibpy.window_should_close()
 
 
     def get_letter(self):
+        """Collects the user input into a string.
+
+        Args:
+            self (InputService): An instance of InputService.
+        
+        """
         key_string = ""
         key_int = raylibpy.get_key_pressed()
         if key_int != -1:

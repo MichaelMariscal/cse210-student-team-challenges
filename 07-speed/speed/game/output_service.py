@@ -36,12 +36,6 @@ class OutputService:
         raylibpy.begin_drawing()
         raylibpy.clear_background(raylibpy.WHITE)
 
-    def draw_box(self, x, y, width, height):
-        """
-        Draws at rectangular box with the provided specifications.
-        """
-        raylibpy.draw_rectangle(x, y, width, height, raylibpy.BLUE)
-
     def draw_text(self, x, y, text, is_dark_text):
         """
         Outputs the provided text at the desired location.
@@ -71,7 +65,6 @@ class OutputService:
 
         is_dark_text = True
 
-        #self._screen.print_at(text, x, y, 7) # WHITE
         raylibpy.draw_text(text, x, y, 16, raylibpy.BLACK)
 
     def draw_actors(self, actors):
