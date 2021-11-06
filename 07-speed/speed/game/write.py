@@ -18,4 +18,5 @@ class Write(Actor):
 
     def clear_buffer(self, is_correct):
         if is_correct:
-            self.user_input.clear()
+            self.user_input = ""
+            self.set_text(f"Buffer: {self.user_input}")

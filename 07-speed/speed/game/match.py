@@ -22,7 +22,6 @@ class Match(Actor):
 
     def is_match(self, user_text, word):
         if word in user_text:
-            print('this works')
             return True
         else:
             return False

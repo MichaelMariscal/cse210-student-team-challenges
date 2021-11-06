@@ -84,22 +84,17 @@ class Director:
         remove_words = []
         self._display.move()
         self.add_words()
-        words = self._display.screen_list
-        for word in words:
-            user_text = str(self._write.user_input)
 
-            input_word = ""
-            #self._display.screen_list[word]
-            found_match = self._match.is_match(user_text, input_word)
-            print(found_match)
-            print(input_word)
-            print(user_text)
+        for word in self._display.screen_list:
+            user_text = self._write.user_input
+            text = word.get_text()
+            found_match = self._match.is_match(user_text, text)
             if found_match:
-               points = self._word.get_points(word)
-               self._score_board.add_points(points)
-               self._write.clear_buffer(True)
-               self._display.move_word(word, remove_words)
-        remove_words.clear()
+                points = self._word.get_points(text)
+                self._score_board.add_points(points)
+                self._write.clear_buffer(True)
+                if word in self._display.screen_list:
+                    self._display.move_word(word, remove_words)
 
         #if we found a match get the points from the word and add them to the scoreboard and clear the buffer and remove the word from the list
         self._display.control_list()
